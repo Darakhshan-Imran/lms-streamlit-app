@@ -1,1 +1,6 @@
+
+build-essential
+pkg-config
 libpq-dev
+python3-dev
+clang
