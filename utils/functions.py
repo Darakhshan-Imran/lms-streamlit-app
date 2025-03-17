@@ -131,14 +131,18 @@ def home_page():
 
     st.markdown(
         """
-        <h1 style="text-align: center; 
+        <h1 style="text-align: center;
+                   font-family: 'Georgia', serif;
+                   color: white; 
                    font-size: 4vw; 
                    font-weight: bold; 
                    margin-top: 20px;">
             Welcome To The Library Management System
         </h1>
 
-        <h2 style="text-align: center; 
+        <h2 style="text-align: center;
+                   font-family: 'Georgia', serif;
+                   color: white; 
                    font-size: 2vw; 
                    font-weight: semibold; 
                    margin-top: -10px;">
