@@ -44,6 +44,7 @@ def create_table():
         connection.close()
 
 # Cache the background image to prevent reloading
+
 @st.cache_resource
 def get_cached_bg():
     background_image_path = "assets/library_bg.jpg"
@@ -54,11 +55,72 @@ def get_cached_bg():
 
     return f"""
     <style>
-    /* Background Image */
+    /* Background Styling */
     .stApp {{
         background: url("data:image/jpg;base64,{encoded_bg}") no-repeat center center fixed;
         background-size: cover;
-        overflow: hidden; /* Hides overflow */
+        background-attachment: fixed;
+        overflow: hidden;
+    }}
+
+    /* General Text Styling */
+    h1, h2 {{
+        font-family: 'Georgia', serif;
+        color: white;
+        text-shadow: 4px 4px 6px rgba(0,0,0,0.8);
+      
+    }}
+
+    /* Responsive Styling */
+    @media (max-width: 1200px) {{
+        h1 {{
+            font-size: 5vw; /* Adjust size dynamically */
+            margin-right: 10vw;
+         
+        }}
+        h2 {{
+            font-size: 2.5vw;
+            margin-right: 10vw;
+        }}
+    }}
+
+    @media (max-width: 992px) {{
+        h1 {{
+            font-size: 4.5vw;
+            text-align: center;
+            margin-right: 0;
+        }}
+        h2 {{
+            font-size: 2vw;
+            text-align: center;
+            margin-right: 0;
+        }}
+    }}
+
+    @media (max-width: 768px) {{
+        h1 {{
+            font-size: 3.5vw;
+            text-align: center;
+            margin: 0;
+        }}
+        h2 {{
+            font-size: 1.8vw;
+            text-align: center;
+            margin: 0;
+        }}
+    }}
+
+    @media (max-width: 480px) {{
+        h1 {{
+            font-size: 3vw;
+            text-align: center;
+            margin: 0;
+        }}
+        h2 {{
+            font-size: 1.5vw;
+            text-align: center;
+            margin: 0;
+        }}
     }}
     </style>
     """
@@ -70,27 +132,19 @@ def home_page():
     st.markdown(
         """
         <h1 style="text-align: center; 
-                   font-family: 'Georgia', serif; 
-                   font-size: 3rem; 
+                   font-size: 4vw; 
                    font-weight: bold; 
-                   color: white; 
-                   margin-top: 8px;
-                   margin-right: 30vh; /* Moves text to the left */
-                   text-shadow: 4px 4px 2px rgba(0,0,0,0.6);"> 
+                   margin-top: 20px;">
             Welcome To The Library Management System
         </h1>
 
         <h2 style="text-align: center; 
-                   font-family: 'Georgia', serif; 
-                   font-size: 1.5rem; 
+                   font-size: 2vw; 
                    font-weight: semibold; 
-                   color: white; 
-                   margin-top: -10px;
-                   margin-right: 30vh; /* Moves text to the left */
-                   text-shadow: 2px 2px 4px #000000;"> 
+                   margin-top: -10px;">
            'An investment in knowledge pays the best interest.'
            <br> 
-            <span style = "font-size: 1rem; font-style:italic; margin-top: 3px;">
+            <span style="font-size: 1.7vw; font-style:italic;">
             — Benjamin Franklin
             </span>
         </h2>
@@ -98,7 +152,6 @@ def home_page():
         unsafe_allow_html=True
     )
 
-   
 # Function for adding books in library db
 
 def add_book(title, author, year, read_status, available, genre  ):
