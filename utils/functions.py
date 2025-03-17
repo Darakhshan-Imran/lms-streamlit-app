@@ -1,5 +1,5 @@
 import streamlit as st
-import psycopg2-binary
+import psycopg2
 import os
 import time
 import base64
